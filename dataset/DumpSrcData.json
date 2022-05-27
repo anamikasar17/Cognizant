@@ -1,0 +1,53 @@
+{
+	"name": "DumpSrcData",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FolderPath": {
+				"type": "String"
+			},
+			"FileName": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().FolderPath",
+					"type": "Expression"
+				},
+				"fileSystem": "cognizantprojectdemo"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "col1",
+				"type": "INT32"
+			},
+			{
+				"name": "col2",
+				"type": "UTF8"
+			},
+			{
+				"name": "col3",
+				"type": "UTF8"
+			},
+			{
+				"name": "col4",
+				"type": "INT32"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
