@@ -1,0 +1,9 @@
+{
+	"name": "Cogzt-Project",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5d741b0a-e4a8-43c9-80db-2cee830920ee",
+		"tenantId": "b3b380f7-4c00-4b2e-b115-ad701add980a"
+	}
+}

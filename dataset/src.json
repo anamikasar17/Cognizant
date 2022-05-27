@@ -1,0 +1,17 @@
+{
+	"name": "src",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Persons"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
