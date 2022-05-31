@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "Cogzt-Project"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"DeltaStorage_accountKey": {
+			"value": ""
+		},
+		"DeltaTable_connectionString": {
+			"value": ""
+		},
+		"SQL_connectionString": {
+			"value": ""
+		},
+		"destdelta_connectionString": {
+			"value": ""
+		},
+		"strg1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://cognizantproject.dfs.core.windows.net"
+		},
+		"DeltaStorage_properties_typeProperties_url": {
+			"value": "https://cognizantproject.dfs.core.windows.net"
+		},
+		"strg1_properties_typeProperties_url": {
+			"value": "https://bcpdr.dfs.core.windows.net"
+		}
+	}
+}

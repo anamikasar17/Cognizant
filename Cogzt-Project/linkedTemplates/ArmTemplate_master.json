@@ -1,0 +1,112 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "Cogzt-Project"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
+		"DeltaStorage_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'DeltaStorage'"
+		},
+		"DeltaTable_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'DeltaTable'"
+		},
+		"SQL_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SQL'"
+		},
+		"destdelta_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'destdelta'"
+		},
+		"strg1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'strg1'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cognizantproject.dfs.core.windows.net"
+		},
+		"DeltaStorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://cognizantproject.dfs.core.windows.net"
+		},
+		"strg1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://bcpdr.dfs.core.windows.net"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "Cogzt-Project_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"DeltaStorage_accountKey": {
+						"value": "[parameters('DeltaStorage_accountKey')]"
+					},
+					"DeltaTable_connectionString": {
+						"value": "[parameters('DeltaTable_connectionString')]"
+					},
+					"SQL_connectionString": {
+						"value": "[parameters('SQL_connectionString')]"
+					},
+					"destdelta_connectionString": {
+						"value": "[parameters('destdelta_connectionString')]"
+					},
+					"strg1_accountKey": {
+						"value": "[parameters('strg1_accountKey')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"DeltaStorage_properties_typeProperties_url": {
+						"value": "[parameters('DeltaStorage_properties_typeProperties_url')]"
+					},
+					"strg1_properties_typeProperties_url": {
+						"value": "[parameters('strg1_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
